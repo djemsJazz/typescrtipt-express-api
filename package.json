@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' --files src/server.ts",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "DjemsJazz",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -22,6 +23,17 @@
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/mongoose": "^5.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.8",
     "nodemon": "^2.0.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
   }
 }

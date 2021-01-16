@@ -7,7 +7,7 @@ router.post('/', (req: Request, res: Response) => {
 });
 
 router.get('/', (req: Request, res: Response) => {
-  res.send("Hello world");
+  res.send('Hello world');
 });
 
 export default router;
