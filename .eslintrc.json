@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb-typescript/base"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "ignorePatterns": [
+    "/node_modules/*",
+    "/public/*"
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      {
+          "code": 190
+      }
+    ]
+  }
+}
