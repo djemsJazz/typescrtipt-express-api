@@ -15,7 +15,8 @@
   ],
   "ignorePatterns": [
     "/node_modules/*",
-    "/public/*"
+    "/public/*",
+    "jest.config.ts"
   ],
   "rules": {
     "max-len": [
