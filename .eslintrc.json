@@ -24,6 +24,7 @@
       {
           "code": 190
       }
-    ]
+    ],
+    "@typescript-eslint/lines-between-class-members": 0
   }
 }

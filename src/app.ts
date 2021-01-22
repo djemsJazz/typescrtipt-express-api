@@ -2,9 +2,10 @@
 import express, { Application } from 'express';
 import * as bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import morgan from 'morgan';
 
-import loggerMidelware from './midelwares/logger';
 import Controller from './interfaces/controller.interface';
+import errorMidelware from './midelwares/error.midelware';
 
 class App {
   public app: Application;
@@ -24,11 +25,12 @@ class App {
     this.connectToDb();
     this.initializeMiddlewares();
     this.initializeControllers(controllers);
+    this.initializeErrorHandler();
   }
 
   private initializeMiddlewares = (): void => {
     this.app.use(bodyParser.json());
-    this.app.use(loggerMidelware);
+    this.app.use(morgan('dev'));
   };
 
   private initializeControllers(controllers: Controller[]) {
@@ -36,6 +38,9 @@ class App {
       this.app.use('/', controller.router);
     });
   }
+  private initializeErrorHandler = (): void => {
+    this.app.use(errorMidelware);
+  };
 
   private connectToDb = () => {
     const { LOCAL_CNX_STR } = process.env;
