@@ -11,14 +11,6 @@ class PostsController implements Controller {
 
   public router: Router = Router();
 
-  private posts: PostInterface[] = [
-    {
-      author: 'Djamel',
-      content: 'Welcome to my first Express & Typscript app :)',
-      title: 'My first Express & Typscript app',
-    },
-  ];
-
   constructor() {
     this.initializeRoutes();
   }
